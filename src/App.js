@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import './App.css'
+import Header from "./components/Header"
 import Die from './components/Die'
 import RollDice from './components/RollDice'
 import {nanoid} from 'nanoid';
@@ -59,16 +60,15 @@ function App() {
   return (
     <div className="App">
       {tenzies && <Confetti />}
-      <header className="App-header">
-      </header>
-        <main className="content-frame">
-          <h1 className="title">Tenzies</h1>
-          <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-          <div className="container die-frame">
-            {diceElements}
-          </div>
-          <RollDice handleClick={rollDice} btnText={tenzies ? "New Game" : "Roll"}/>
-        </main>
+      <Header />
+      <main className="content-frame">
+        <h1 className="title">Tenzies</h1>
+        <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <div className="container die-frame">
+          {diceElements}
+        </div>
+        <RollDice handleClick={rollDice} btnText={tenzies ? "New Game" : "Roll"}/>
+      </main>
     </div>
   );
 }
